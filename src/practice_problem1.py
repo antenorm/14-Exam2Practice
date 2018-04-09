@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  IMPLEMENTING CLASSES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Antenore.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -39,8 +39,11 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-#     run_test_init()
-#     run_test_append_string()
+    run_test_init()
+
+    run_test_append_string()
+
+
 #     run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
@@ -93,8 +96,14 @@ class Box(object):
           :type contents: str
           :type volume: int
         """
+        if len(contents) <= volume:
+            self.contents = contents
+        else:
+            self.contents = ''
+
+        self.volume = volume
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # Done: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -134,8 +143,16 @@ class Box(object):
         Type hints:
           :type additional_contents: str
         """
+        s = ''
+        for k in range(len(additional_contents)):
+            if len(self.contents) < self.volume:
+                self.contents += additional_contents[k]
+            else:
+                s += additional_contents[k]
+        return s
+
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # Done: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -1002,6 +1019,7 @@ def print_failure_message(message='  *** FAILED the above test. ***',
     print(message,
           file=sys.stderr, flush=True)
     time.sleep(flush_time)
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
