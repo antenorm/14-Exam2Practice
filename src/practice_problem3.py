@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Antenore.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -155,8 +155,17 @@ def practice_problem3a(circles):
     Type hints:
       :type sequence: [rg.Circle]
     """
+
+    if len(circles) > 0:
+        total = circles[0].center.x
+        for k in range(len(circles) - 1):
+            total *= circles[k + 1].center.x
+        return total
+    else:
+        return 1
+
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -265,8 +274,13 @@ def practice_problem3b(sequence):
     Type hints:
       :type: sequence: list    or tuple or string
     """
+    last = sequence[len(sequence) - 1]
+    for k in range(len(sequence) - 1):
+        if last == sequence[k]:
+            return True
+    return False
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -353,8 +367,13 @@ def practice_problem3c(sequence):
     Type hints:
       :type: sequence: list    or tuple or string
     """
+    s = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            s += [k]
+    return s
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -436,17 +455,19 @@ def practice_problem3d(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
-
-
+    #for k in range(len(sequence)):
+    #    if sequence[k] == 0:
+    #        return k
+    #return -1
     ####################################################################
-    # TODO: 6. Just ABOVE this TODO, you should have implemented
+    # Done: 6. Just ABOVE this TODO, you should have implemented
     #     a solution for the   practice_problem3d   function.
     #     Here, put ANOTHER solution, as follows:
     #
@@ -460,7 +481,11 @@ def practice_problem3d(sequence):
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
-
+    x = practice_problem3c(sequence)
+    if len(x) > 0:
+        return x[0]
+    else:
+        return -1
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -522,14 +547,17 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
-
+    total = 0
+    for k in range(0, len(sequence), 2):
+        total += sequence[k]
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
