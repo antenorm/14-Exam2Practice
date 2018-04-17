@@ -50,7 +50,7 @@ def main():
     run_test_reset()
     run_test_steal()
     run_test_get_history()
-#     run_test_combined_box()
+    run_test_combined_box()
 
 
 ########################################################################
@@ -432,7 +432,7 @@ class Box(object):
         """
         return self.history
         # --------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # Done: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -457,8 +457,10 @@ class Box(object):
         Type hints:
           :type other_box: Box
         """
+        return Box(self.contents + other_box.contents, self.volume + other_box.volume)
+
         # --------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # Done: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
