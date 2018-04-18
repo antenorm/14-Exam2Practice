@@ -195,9 +195,7 @@ def practice_problem2b(sequence):
     """
     s = ''
     for k in range(len(sequence)):
-        s += str(sequence[k][0])
-
-
+        s += sequence[k][0]
     return s
     ####################################################################
     # TODO: 4. Implement and test this function.
